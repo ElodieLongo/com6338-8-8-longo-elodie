@@ -5,10 +5,6 @@ let apiUrl = "https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={l
 const geocodingURL = "https://api.openweathermap.org/geo/1.0/direct?q=$locationInput&limit&=1units=imperial&appid=${apiKey}";
 
 const weatherElement = document.querySelector("#weather");
- /*
-const googleMapElement = document.querySelector("#weather a");
-const weatherIconElement = document.querySelector("#weather img");
-  */
 const currentWeatherDescriptionElement = document.querySelector("#weather p:first-child");
 const currentTempElement = document.querySelector("#weather p:nth-of-type(2)");
 const feelsLikeTempElement = document.querySelector("#weather p:nth-of-type(3)");
@@ -37,8 +33,6 @@ console.log(geocodingData)
       minute: '2-digit'
     })
 
-
-
 weatherElement.innerHTML = `<h2>${geocodingData.name}, ${geocodingData.sys.country}</h2>
 <a href="https://www.google.com/maps/search/?api=1&query=${geocodingData.coord.lat},${geocodingData.coord.lon}"
 target="__BLANK">Click to view map</a>
@@ -47,7 +41,4 @@ target="__BLANK">Click to view map</a>
 <p>Current: ${geocodingData.main.temp}° F</p>
 <p>Feels like: ${geocodingData.main.feels_like}° F</p><br>
 <p>Last updated: ${timeString}</p>`
-
- // 
-
 });
